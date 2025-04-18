@@ -1,0 +1,15 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo "Installing dependencies..."
+      - pip install -r requirements.txt
+  build:
+    commands:
+      - echo "Running unit tests..."
+      - python -m pytest test_app.py -v  # This will fail 50% of the time (due to /fail)
+      - echo "Build completed at $(date)"
+artifacts:
+  files:
+    - '**/*'
